@@ -1,71 +1,56 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import Catalog from './components/Catalog'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-slate-950 text-white">
+      <Navbar />
+      <Hero />
+      <Features />
+      <Catalog />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
+      <footer id="about" className="relative border-t border-cyan-400/10 bg-slate-950/80 py-12">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.06),transparent_60%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <h4 className="text-sm font-semibold tracking-wider text-cyan-300">AutoNova Parts</h4>
+              <p className="mt-2 text-sm text-slate-300">A next-gen platform for high-performance automotive components.</p>
             </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
+            <div>
+              <h4 className="text-sm font-semibold tracking-wider text-cyan-300">Catalog</h4>
+              <ul className="mt-2 space-y-1 text-sm text-slate-300/90">
+                <li>Engine</li>
+                <li>Braking</li>
+                <li>Suspension</li>
+                <li>Electronics</li>
+                <li>LED Lighting</li>
+                <li>Bodywork</li>
+              </ul>
             </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
+            <div>
+              <h4 className="text-sm font-semibold tracking-wider text-cyan-300">Platform</h4>
+              <ul className="mt-2 space-y-1 text-sm text-slate-300/90">
+                <li>Vehicle History</li>
+                <li>AI Recommendations</li>
+                <li>Order Monitoring</li>
+                <li>Secure Profiles</li>
+              </ul>
             </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
+            <div>
+              <h4 className="text-sm font-semibold tracking-wider text-cyan-300">Company</h4>
+              <ul className="mt-2 space-y-1 text-sm text-slate-300/90">
+                <li>About</li>
+                <li>Careers</li>
+                <li>Contact</li>
+              </ul>
             </div>
           </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+          <div className="mt-10 border-t border-white/5 pt-6 text-xs text-slate-400">© {new Date().getFullYear()} AutoNova Parts. All rights reserved.</div>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
