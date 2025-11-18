@@ -1,15 +1,41 @@
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Features from './components/Features'
 import Catalog from './components/Catalog'
+import AuthModals from './components/AuthModals'
 
 function App() {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
+  const [showLogin, setShowLogin] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
+
+  // Expose events so navbar buttons can open modals without prop drilling
+  useEffect(() => {
+    const onOpenLogin = () => setShowLogin(true)
+    const onOpenSignup = () => setShowSignup(true)
+    window.addEventListener('open-login', onOpenLogin)
+    window.addEventListener('open-signup', onOpenSignup)
+    return () => {
+      window.removeEventListener('open-login', onOpenLogin)
+      window.removeEventListener('open-signup', onOpenSignup)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Navbar />
       <Hero />
       <Features />
       <Catalog />
+
+      <AuthModals
+        backendUrl={backendUrl}
+        showLogin={showLogin}
+        showSignup={showSignup}
+        onCloseLogin={() => setShowLogin(false)}
+        onCloseSignup={() => setShowSignup(false)}
+      />
 
       <footer id="about" className="relative border-t border-cyan-400/10 bg-slate-950/80 py-12">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.06),transparent_60%)]" />

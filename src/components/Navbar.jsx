@@ -4,6 +4,9 @@ import { Menu, X, LogIn, UserPlus, Car, Search } from 'lucide-react'
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
+  const openLogin = () => window.dispatchEvent(new Event('open-login'))
+  const openSignup = () => window.dispatchEvent(new Event('open-signup'))
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -33,11 +36,11 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden gap-3 md:flex">
-              <button className="group relative overflow-hidden rounded-lg border border-cyan-400/30 bg-slate-800/60 px-4 py-2 text-sm text-slate-100 transition hover:brightness-110">
+              <button onClick={openLogin} className="group relative overflow-hidden rounded-lg border border-cyan-400/30 bg-slate-800/60 px-4 py-2 text-sm text-slate-100 transition hover:brightness-110">
                 <span className="relative z-10 flex items-center gap-2"><LogIn className="h-4 w-4 text-cyan-300" /> Login</span>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-blue-500/10" />
               </button>
-              <button className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-fuchsia-500 px-4 py-2 text-sm font-medium text-white shadow-[0_0_30px_rgba(34,211,238,0.35)]">
+              <button onClick={openSignup} className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-fuchsia-500 px-4 py-2 text-sm font-medium text-white shadow-[0_0_30px_rgba(34,211,238,0.35)]">
                 <span className="relative z-10 flex items-center gap-2"><UserPlus className="h-4 w-4" /> Sign Up</span>
                 <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-white/10" />
               </button>
@@ -55,8 +58,8 @@ export default function Navbar() {
                 <a className="text-slate-200" href="#features">Features</a>
                 <a className="text-slate-200" href="#about">About</a>
                 <div className="flex gap-2 pt-2">
-                  <button className="flex-1 rounded-lg border border-cyan-400/30 bg-slate-800/60 px-3 py-2 text-sm text-slate-100"><LogIn className="mr-2 inline h-4 w-4 text-cyan-300" />Login</button>
-                  <button className="flex-1 rounded-lg bg-gradient-to-r from-cyan-500 to-fuchsia-500 px-3 py-2 text-sm font-medium text-white">Sign Up</button>
+                  <button onClick={openLogin} className="flex-1 rounded-lg border border-cyan-400/30 bg-slate-800/60 px-3 py-2 text-sm text-slate-100"><LogIn className="mr-2 inline h-4 w-4 text-cyan-300" />Login</button>
+                  <button onClick={openSignup} className="flex-1 rounded-lg bg-gradient-to-r from-cyan-500 to-fuchsia-500 px-3 py-2 text-sm font-medium text-white">Sign Up</button>
                 </div>
               </nav>
             </div>
